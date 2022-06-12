@@ -5,15 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\AdminPanel\img\advert\" />
-    <Folder Include="wwwroot\AdminPanel\img\saleoff\" />
-    <Folder Include="wwwroot\AdminPanel\img\blog\" />
-    <Folder Include="wwwroot\AdminPanel\img\owner\" />
-    <Folder Include="wwwroot\AdminPanel\img\category\" />
-    <Folder Include="wwwroot\AdminPanel\img\product\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>

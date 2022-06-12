@@ -71,6 +71,44 @@ basketCount(basketcount)
 //basket count
 
 
+let addcartproduct=document.querySelector(".addbtn button")
+
+addcartproduct.addEventListener("click",addbasket)
+
+function addbasket(){
+
+  if (JSON.parse(localStorage.getItem("products") == null)) {
+    localStorage.setItem("products", JSON.stringify([]));
+  }
+
+  let productList = JSON.parse(localStorage.getItem("products"))
+ let productname= this.parentElement.parentElement.parentElement.children[0].innerText;
+ let productprice=this.parentElement.parentElement.parentElement.children[2].innerText;
+ let productimg=this.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[0].children[0].getAttribute("src")
+ let productid=this.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[0].getAttribute("data-id")
+
+ let existproduct=productList.find(m=>m.id)
+
+ if(existproduct==undefined){
+  productList.push({
+    id: productid,
+    image: productimg,
+    name: productname,
+    price: productprice,
+    count: 1
+  });
+  
+  alert("Product Added Success!")
+ }
+ else{
+  alert("You have added this Product to your Cart,Please check your basket")
+ }
+
+
+localStorage.setItem("products", JSON.stringify(productList))
+}
+
+
 
 
 

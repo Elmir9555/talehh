@@ -14,22 +14,22 @@
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- owl-carusel-plugin -->
+
+
     <link rel="stylesheet" href="~/MemberPanel/assets/sass/home.css">
     <link rel="stylesheet" href="~/MemberPanel/assets/css/home.css">
-    <link rel="stylesheet" href="~/MemberPanel/assets/css/blog.css">
-
-    
-    <link rel="stylesheet" href="~/MemberPanel/assets/sass/contact.css">
 
     <link rel="stylesheet" href="~/MemberPanel/assets/sass/blog.css">
-
-
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/contact.css">
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/blogdetail.css">
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/products.css">
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/shopdetail.css">
     <link rel="stylesheet" href="~/MemberPanel/assets/sass/shop.css">
-    <link rel="stylesheet" href="~/MemberPanel/assets/css/shop.css">
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/shopcard.css">
+    <link rel="stylesheet" href="~/MemberPanel/assets/sass/favori.css">
 
 
-    
-    <title>Home Page</title>
+    <title>Ogani Web Site</title>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
                         <div class="right-first-header">
                             <div class="exchange-login-social">
                                 <ul>
-                                    <li class="social">
+                                    @*<li class="social">
                                         <a href="">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
@@ -71,7 +71,7 @@
                                         <a href="">
                                             <i class="fab fa-pinterest-p"></i>
                                         </a>
-                                    </li>
+                                    </li>*@
 
                                     <li class="login">
 
@@ -80,14 +80,7 @@
                                             <span><a href="~/MemberPanel/register.html">Register</a></span>
                                         </div>
 
-                                        <!-- <div class="dropdown">
-                                            <button class="dropbtn">English <i class="fas fa-angle-down"></i></button>
-                                            <div class="dropdown-content">
-                                                <a href="#">English</a>
-                                                <a href="#">Spain</a>
-
-                                            </div>
-                                        </div> -->
+                                        
                                     </li>
 
                                     <li class="login">
@@ -110,7 +103,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-12">
                         <div class="ogani">
-                            <img src="~/MemberPanel/assets/img/logo.png" alt="ogani" href="~/MemberPanel/home.html">
+                            <a asp-action="HomePage" asp-controller="Home">
+                                <img src="~/MemberPanel/assets/img/logo.png" alt="ogani">
+                            </a>
+                            
 
                         </div>
                     </div>
@@ -120,19 +116,13 @@
                                 <a asp-action="HomePage" asp-controller="Home" id="drop">HOME</a>
                             </li>
                             <li>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><a asp-action="ShopPage" asp-controller="Shop" target="_blank" id="drop">SHOP</a></button>
-
-                                </div>
+                                <a asp-action="ProductPage" asp-controller="Product" id="drop">PRODUCT</a>
                             </li>
                             <li>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><a asp-action="BlogPage" asp-controller="Blog" target="_blank" id="drop">BLOG</a></button>
-                                    <div class="dropdown-content">
-                                        <a href="~/MemberPanel/blogdetail.html" target="_blank">Blog Details</a>
-
-                                    </div>
-                                </div>
+                                <a asp-action="ShopPage" asp-controller="Shop" target="_blank" id="drop">SHOP</a>
+                            </li>
+                            <li>
+                                <a asp-action="BlogPage" asp-controller="Blog" target="_blank" id="drop">BLOG</a>
                             </li>
                             <li>
                                 <a asp-action="ContactPage" asp-controller="Contact" target="_blank" id="drop">CONTACT</a>
@@ -162,8 +152,6 @@
                                     <i class="fas fa-shopping-basket"></i>
                                 </a>
                             </span>
-
-
 
                             <span class="price">
 
@@ -198,15 +186,7 @@
                             <div class="dropdown-cate">
                                 <button id="all-categ">All Categories <i class="fas fa-angle-down"></i></button>
                                 <div class="dropdown-content-cate">
-                                    <a href="#home">Fresh Meats</a>
-                                    <a href="#about">Vegetables</a>
-                                    <a href="#contact">Fruit</a>
-                                    <a href="#about">Fresh Berries</a>
-                                    <a href="#about">Ocean Foods</a>
-                                    <a href="#about">Butter & Eggs</a>
-                                    <a href="#about">Fastfood</a>
-                                    <a href="#about">Fresh Onion</a>
-                                    <a href="#about">Nut Gifts</a>
+                                    @await Component.InvokeAsync("CategoryList")
 
                                 </div>
 
@@ -228,7 +208,7 @@
 
                             <div class="phone">
                                 <div class="number">
-                                    +994 50 450 95 55
+                                    +994 55 856 23 93
                                 </div>
                                 <div class="support">
                                     support 24/7 time
@@ -248,6 +228,9 @@
     @RenderBody()
 
     <!-- Start CONTAINER -->
+
+
+
     <!-- start-footer -->
     <footer>
         <div class="footer">
@@ -273,14 +256,14 @@
                             <div class="links">
 
                                 <div class="navbar">
-                                    <a href="~/MemberPanel/home.html">Home</a>
-                                    <a href="~/MemberPanel/shop.html">Shop</a>
-                                    <a href="~/MemberPanel/blog.html">Blog</a>
-                                    <a href="~/MemberPanel/contact.html">Contact</a>
+                                    <a asp-action="HomePage" asp-controller="Home">Home</a>
+                                    <a asp-action="ShopPage" asp-controller="Shop">Shop</a>
+                                    <a asp-action="BlogPage" asp-controller="Blog">Blog</a>
+                                    <a asp-action="ContactPage" asp-controller="Contact">Contact</a>
 
                                 </div>
                                 <div class="ourselves-link">
-                                    <a href="">Who We Are</a>
+                                    <a href="https://en.wikipedia.org/wiki/Planet_Organic">Who We Are</a>
                                     <a href="">Our Services</a>
                                     <a href="">Projects</a>
                                     <a href="">Innovation</a>
@@ -344,6 +327,7 @@
             integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://kit.fontawesome.com/ad811518ca.js" crossorigin="anonymous"></script>
 
     <script type="module" src="~/MemberPanel/assets/js/home.js"></script>
 
@@ -351,10 +335,18 @@
 
     <script type="module" src="~/MemberPanel/assets/js/shop.js"></script>
 
-    <script src="https://kit.fontawesome.com/ad811518ca.js" crossorigin="anonymous"></script>
-
+    <script type="module" src="~/MemberPanel/assets/js/products.js"></script>
 
     <script type="module" src="~/MemberPanel/assets/js/blog.js"></script>
+
+    <script type="module" src="~/MemberPanel/assets/js/shopcard.js"></script>
+
+    <script type="module" src="~/MemberPanel/assets/js/shopdetail.js"></script>
+
+    <script type="module" src="~/MemberPanel/assets/js/favori.js"></script>
+
+    <script type="module" src="~/MemberPanel/assets/js/common.js"></script>
+
 
 </body>
 

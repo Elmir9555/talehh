@@ -1,4 +1,4 @@
-import {favoriCount,basketCount,getCountheart, searchfilterdropdown,dropdowns} from "./common.js"
+import {favoriCount,basketCount,getCountheart, searchfilterdropdown,dropdowns,addproducts, addproductsfav} from "./common.js"
 
 //header start ALL CATEGORIES dropdown
 dropdowns();
@@ -2070,4 +2070,10 @@ favoriCount(heartcount)
 let basketcount=document.querySelector(".basket-count")
 basketCount(basketcount)
 //basketcount
+
+
+//basket
+addproductsfav();
+addproducts();
+//basket
 
